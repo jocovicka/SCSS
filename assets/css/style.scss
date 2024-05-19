@@ -1,0 +1,565 @@
+/* fonts */
+@import url('https://fonts.googleapis.com/css2?family=Dosis:wght@300;400;500;600;700;800&family=Rajdhani:wght@300;400;500;600;700&family=Rubik:wght@300;400;500;600;700&display=swap');
+
+$color:#ff177f;
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: 'Rubik', sans-serif;
+  text-decoration: none;
+  transition: 0.3s;
+
+  &::selection {
+    background-color: $color;
+    color: #fff;
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+.contanier {
+  width: 85%;
+  margin: auto;
+}
+
+.btn {
+  padding: 15px 30px;
+  color: #ffffff;
+  font-weight: 500;
+  background-color: $color;
+  border-radius: 5px + 5px;
+  border: 1px solid #f9559f;
+
+  &:hover {
+    color: $color;
+    background: #fff;
+  }
+}
+
+section {
+  padding: 90px 0 40px;
+}
+
+.sec-top {
+  text-align: center;
+  margin-bottom: 70px;
+
+  h1 {
+    color: #011232;
+    font-size: 4px * 10px;
+
+    span {
+      color: $color;
+    }
+  }
+}
+
+.boxs {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+
+  .box {
+    width: 30%;
+  }
+}
+
+/* start Header */
+
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: transparent;
+  z-index: 1000;
+
+  &.active {
+    background-color: #011232;
+    border-bottom: 1px solid #8888884a;
+  }
+
+  nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 80px;
+
+    .nav-links a {
+      color: #fff;
+      margin-left: 50px;
+
+      &:hover, &.active {
+        color: $color;
+      }
+    }
+  }
+}
+
+
+#btn-menu {
+  display: none;
+}
+
+/* start Hero */
+
+.hero {
+  padding-top: 80px;
+  background: url(img/hbg.jpg);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .contanier {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .content {
+    h4 {
+      color: $color;
+      font-size: 30px;
+    }
+
+    h1 {
+      color: #fff;
+      font-size: 65px;
+      margin: 20px 0 10px;
+    }
+
+    p {
+      color: #e4e4e4;
+      font-size: 30px;
+      font-weight: bold;
+      margin-bottom: 70px;
+    }
+
+    .btn {
+      font-size: 18px;
+    }
+  }
+
+  .hero-img img {
+    width: 400px;
+    border-radius: 50%;
+  }
+}
+
+/* start about */
+
+.about {
+  padding: 90px 0 50px;
+
+  .contanier {
+    display: flex;
+    justify-content: center;
+  }
+
+  .about-img img {
+    width: 450px;
+    border-radius: 10px;
+  }
+
+  .content {
+    margin-left: 30px;
+
+    h1 {
+      color: #011232;
+      font-size: 45px;
+
+      span {
+        color: $color;
+      }
+    }
+
+    h3 {
+      color: #011232;
+      font-size: 20px;
+      font-weight: 600;
+      margin-bottom: 40px;
+    }
+
+    p {
+      color: #444;
+      line-height: 1.8;
+      margin-bottom: 70px;
+    }
+  }
+}
+
+/* start Portfolio */
+
+.portfolio .boxs {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+
+  @for $i from 1 through 3 {
+    .box:nth-child(#{$i}) {
+      width: calc(30% - 20px);     /* Dodali smo -20px za marginu između kutija */
+      margin-bottom: 40px;         /* Dodali smo margin na dno kutija */
+      margin-right: 20px;          /* Dodali smo margin na desnu stranu kutija */
+
+      @if $i % 3 == 0 {
+        margin-right: 0;          /* Uklanjamo marginu sa zadnje kutije u svakom redu */
+      }
+    }
+  }
+
+
+  /* Omogućava fleksibilno raspoređivanje kutija 
+  margin: 45px;*/
+
+  /* Oduzimamo razmak od celog containera da uklonimo bilo koji dodatni razmak */
+
+  .box {
+    position: relative;
+    width: calc(25% - 10px);
+
+    /* Podesimo širinu kutija sa minimalnim razmakom */
+    margin: 5px;
+
+    /* Minimalan razmak između kutija */
+    border-radius: 50%;
+
+    /* Zaokruživanje ivica kutija */
+    overflow: hidden;
+
+    /* Osigurava da sve unutar kutije ostane unutar granica */
+    box-sizing: border-box;
+
+    /* Osigurava da margine ne povećavaju ukupnu širinu kutije */
+
+    a {
+      display: block;
+      width: 100%;
+      height: 100%;
+      position: relative;
+
+      /* Osigurava da a tag preuzme dimenzije kutije */
+      text-decoration: none;
+
+      /* Uklanja podvlačenje linkova */
+      border-radius: 50%;
+
+      /* Zaokružuje ivice linka */
+      overflow: hidden;
+
+      /* Osigurava da sve unutar linka ostane unutar granica */
+
+      img {
+        width: 100%;
+        height: auto;
+
+        /* Podesi visinu automatski da se zadrži proporcija slike */
+        display: block;
+
+        /* Osigurava da slika zauzme ceo prostor unutar linka */
+        border-radius: 50%;
+        transition: transform 0.6s ease-out;
+
+        /* Dodaje animaciju za hover */
+      }
+
+      .box-hover {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(17, 17, 17, 0.73);
+
+        /* Poluprovidna crna boja */
+        z-index: 2;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        opacity: 0;
+        transition: opacity 0.6s;
+        border-radius: 50%;
+
+        /* Zaokružuje ivice hover efekta */
+      }
+
+      &:hover .box-hover {
+        opacity: 1;
+
+        /* Povećava vidljivost hover efekta */
+      }
+
+      .box-hover span {
+        color: #fff;
+        font-size: 25px;
+      }
+
+      &:hover img {
+        transform: scale(1.2) rotate(-4deg);
+
+        /* Dodaje animaciju na hover */
+      }
+    }
+  }
+}
+
+/* Za tablet uređaje */
+@media screen and (max-width: 768px) {
+  .portfolio .boxs .box {
+    width: calc(50% - 10px);
+
+    /* Dve kutije u redu za uređaje sa širinom ekrana do 768px */
+  }
+}
+
+/* Za mobilne uređaje */
+@media screen and (max-width: 480px) {
+  .portfolio .boxs .box {
+    width: calc(100% - 10px);
+
+    /* Jedna kutija u redu za uređaje sa širinom ekrana do 480px */
+  }
+}
+
+/* start Contact */
+
+.contact {
+  background: #f0f4f9;
+
+  form {
+    width: 60%;
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+
+    input {
+      width: 48%;
+      font-size: 18px;
+      padding: 15px 10px;
+      outline: none;
+      border: 1px solid rgba(128, 112, 22, 0.3);
+      margin-bottom: 20px;
+      border-radius: 10px;
+    }
+
+    textarea {
+      border: 1px solid rgba(128, 112, 22, 0.3);
+      outline: none;
+      border-radius: 10px;
+      width: 100%;
+      padding: 10px;
+
+      &:focus {
+        border-color: $color;
+      }
+    }
+
+    input:focus {
+      border-color: $color;
+    }
+
+    button {
+      margin: 40px auto 0;
+      cursor: pointer;
+    }
+  }
+}
+
+/* Media */
+
+@media (max-width: 1200px) {
+  .contanier {
+    width: 90%;
+  }
+
+  .hero {
+    .content {
+      h1 {
+        font-size: 50px;
+      }
+
+      p {
+        font-size: 25px;
+      }
+    }
+
+    .hero-img img {
+      width: 380px;
+    }
+
+    padding-bottom: 40px;
+  }
+
+  .about {
+    .content {
+      h3 {
+        font-size: 20px;
+      }
+
+      p {
+        margin-bottom: 50px;
+      }
+    }
+
+    .about-img img {
+      width: 380px;
+    }
+  }
+
+  .services .boxs .box h3 {
+    font-size: 22px;
+  }
+
+  .contact form {
+    width: 70%;
+  }
+}
+
+@media (max-width: 900px) {
+  .hero {
+    .content {
+      h1 {
+        font-size: 40px;
+      }
+
+      p {
+        font-size: 22px;
+      }
+    }
+
+    .hero-img img {
+      width: 340px;
+    }
+  }
+
+  header nav .nav-links a {
+    margin-left: 40px;
+  }
+
+  .about {
+    .contanier {
+      flex-direction: column;
+      text-align: center;
+    }
+
+    .about-img {
+      img {
+        width: 340px;
+      }
+
+      margin-bottom: 40px;
+    }
+  }
+
+  .boxs .box {
+    width: 45%;
+    margin-bottom: 40px;
+  }
+
+  .contact form {
+    width: 80%;
+  }
+}
+
+@media (max-width: 780px) {
+  .hero {
+    .contanier {
+      flex-direction: column-reverse;
+    }
+
+    .hero-img img {
+      width: 380px;
+    }
+
+    .content {
+      h1 {
+        font-size: 50px;
+      }
+
+      margin-top: 40px;
+      text-align: center;
+    }
+  }
+
+  .btn {
+    padding: 12px 25px;
+  }
+
+  #btn-menu {
+    display: block;
+    color: #fff;
+    font-size: 40px;
+  }
+
+  header nav .nav-links {
+    position: absolute;
+    top: -350px;
+    left: 0;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    background-color: #1c1e22;
+
+    &.active {
+      top: 100%;
+    }
+
+    a {
+      width: 100%;
+      margin: auto;
+      padding: 20px;
+      text-align: center;
+      font-size: 20px;
+      border-bottom: 1px solid #444;
+
+      &.active, &:hover {
+        background-color: $color;
+        color: #1c1e22;
+      }
+    }
+  }
+}
+
+@media (max-width: 670px) {
+  .hero {
+    .content h1 {
+      font-size: 40px;
+    }
+
+    .hero-img img {
+      width: 320px;
+    }
+  }
+
+  .boxs {
+    justify-content: center;
+
+    .box {
+      width: 70%;
+    }
+  }
+
+  .contact form {
+    width: 90%;
+  }
+}
+
+@media (max-width: 500px) {
+  .hero .hero-img img {
+    width: 280px;
+  }
+
+  .contact form {
+    width: 90%;
+    justify-content: center;
+
+    input {
+      width: 100%;
+    }
+  }
+}
